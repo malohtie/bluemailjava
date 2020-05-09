@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="smartmail:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/smartmail_jar</output-path>
+    <root id="archive" name="smartmail.jar">
+      <element id="module-output" name="smartmail" />
+    </root>
+  </artifact>
+</component>
