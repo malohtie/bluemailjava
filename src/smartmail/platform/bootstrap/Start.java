@@ -1,14 +1,14 @@
 package smartmail.platform.bootstrap;
 
-import java.io.File;
 import org.apache.commons.codec.binary.Base64;
 import smartmail.platform.controllers.BounceCleaner;
 import smartmail.platform.controllers.DropsSender;
 import smartmail.platform.controllers.StatsCalculator;
 import smartmail.platform.controllers.SuppressionManager;
-import smartmail.platform.interfaces.Controller;
 import smartmail.platform.logging.Logger;
 import smartmail.platform.orm.Database;
+
+import java.io.File;
 
 public class Start {
     public static void main(String[] args) {
@@ -38,6 +38,7 @@ public class Start {
             }
         } catch (Exception e) {
             Logger.error(e, Start.class);
+            System.out.println("Error :" + e.getMessage());
         } finally {
             long end = System.currentTimeMillis();
             System.out.println("Job Completed in : " + (end - startTime) + " miliseconds");

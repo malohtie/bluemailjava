@@ -1,10 +1,11 @@
 package smartmail.platform.models.admin;
 
-import java.io.Serializable;
-import java.sql.Date;
 import smartmail.platform.exceptions.DatabaseException;
 import smartmail.platform.meta.annotations.Column;
 import smartmail.platform.orm.ActiveRecord;
+
+import java.io.Serializable;
+import java.sql.Date;
 
 public class Isp extends ActiveRecord implements Serializable {
     @Column(name = "id", primary = true, autoincrement = true, type = "integer", nullable = false)

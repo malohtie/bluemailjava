@@ -1,10 +1,11 @@
 package smartmail.platform.orm;
 
-import java.io.File;
-import java.util.HashMap;
 import smartmail.platform.logging.Logger;
 import smartmail.platform.registry.Packager;
 import smartmail.platform.utils.Mapper;
+
+import java.io.File;
+import java.util.HashMap;
 
 public class Database {
     public static synchronized void init() {
@@ -31,6 +32,7 @@ public class Database {
                 }
             }
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             Logger.error(e, Database.class);
         }
     }

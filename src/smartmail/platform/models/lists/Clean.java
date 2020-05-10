@@ -1,9 +1,10 @@
 package smartmail.platform.models.lists;
 
-import java.io.Serializable;
 import smartmail.platform.exceptions.DatabaseException;
 import smartmail.platform.meta.annotations.Column;
 import smartmail.platform.orm.ActiveRecord;
+
+import java.io.Serializable;
 
 public class Clean extends ActiveRecord implements Serializable {
     @Column(name = "id", primary = true, autoincrement = true, type = "integer", nullable = false)

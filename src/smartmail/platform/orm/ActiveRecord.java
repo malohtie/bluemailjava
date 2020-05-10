@@ -1,11 +1,5 @@
 package smartmail.platform.orm;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
@@ -14,6 +8,9 @@ import smartmail.platform.exceptions.DatabaseException;
 import smartmail.platform.logging.Logger;
 import smartmail.platform.meta.annotations.Column;
 import smartmail.platform.utils.Inspector;
+
+import java.io.File;
+import java.util.*;
 
 public class ActiveRecord {
     private String database = "";

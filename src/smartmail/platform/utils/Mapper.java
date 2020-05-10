@@ -1,13 +1,14 @@
 package smartmail.platform.utils;
 
+import org.apache.commons.io.FileUtils;
+import smartmail.platform.logging.Logger;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.TreeMap;
-import org.apache.commons.io.FileUtils;
-import smartmail.platform.logging.Logger;
 
 public class Mapper {
     public static Object getMapValue(TreeMap map, String key, Object defaultValue) {

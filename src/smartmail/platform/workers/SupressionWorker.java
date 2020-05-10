@@ -1,18 +1,14 @@
 package smartmail.platform.workers;
 
-import java.io.File;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
 import org.apache.commons.io.FileUtils;
 import smartmail.platform.controllers.SuppressionManager;
 import smartmail.platform.logging.Logger;
 import smartmail.platform.models.admin.DataList;
 import smartmail.platform.orm.Database;
+
+import java.io.File;
+import java.sql.SQLException;
+import java.util.*;
 
 public class SupressionWorker extends Thread {
     public int proccessId;

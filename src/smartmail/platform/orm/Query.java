@@ -1,11 +1,12 @@
 package smartmail.platform.orm;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
 import org.apache.commons.lang.ArrayUtils;
 import smartmail.platform.exceptions.DatabaseException;
 import smartmail.platform.logging.Logger;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 public class Query {
     private String database = Database.getDefault().getKey();

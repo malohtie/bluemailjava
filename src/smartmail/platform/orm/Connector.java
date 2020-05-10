@@ -1,15 +1,12 @@
 package smartmail.platform.orm;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
+import smartmail.platform.exceptions.DatabaseException;
+import smartmail.platform.logging.Logger;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import smartmail.platform.exceptions.DatabaseException;
-import smartmail.platform.logging.Logger;
 
 public class Connector {
     private DataSource dataSource;

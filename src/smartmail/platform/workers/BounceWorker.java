@@ -1,9 +1,5 @@
 package smartmail.platform.workers;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.ArrayUtils;
 import smartmail.platform.controllers.BounceCleaner;
@@ -14,6 +10,11 @@ import smartmail.platform.models.lists.Clean;
 import smartmail.platform.models.lists.HardBounce;
 import smartmail.platform.orm.Database;
 import smartmail.platform.parsers.TypesParser;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 public class BounceWorker extends Thread {
     public int proccessId;

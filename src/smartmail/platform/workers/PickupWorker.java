@@ -1,10 +1,5 @@
 package smartmail.platform.workers;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.net.QuotedPrintableCodec;
 import org.apache.commons.io.FileUtils;
@@ -19,8 +14,13 @@ import smartmail.platform.models.admin.Vmta;
 import smartmail.platform.models.lists.Fresh;
 import smartmail.platform.parsers.TypesParser;
 import smartmail.platform.security.Crypto;
-import smartmail.platform.utils.Domains;
 import smartmail.platform.utils.Strings;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 public class PickupWorker extends Thread {
     public int index;

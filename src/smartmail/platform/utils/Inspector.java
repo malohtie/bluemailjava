@@ -1,10 +1,11 @@
 package smartmail.platform.utils;
 
-import java.lang.reflect.Field;
 import org.apache.commons.lang.ArrayUtils;
 import smartmail.platform.exceptions.SystemException;
 import smartmail.platform.logging.Logger;
 import smartmail.platform.meta.annotations.Column;
+
+import java.lang.reflect.Field;
 
 public class Inspector {
     public static String[] classFields(Object object) {

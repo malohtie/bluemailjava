@@ -1,21 +1,5 @@
 package smartmail.platform.helpers;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.ArrayUtils;
@@ -27,19 +11,21 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import smartmail.platform.components.DropComponent;
 import smartmail.platform.logging.Logger;
-import smartmail.platform.models.admin.Isp;
-import smartmail.platform.models.admin.Offer;
-import smartmail.platform.models.admin.OfferName;
-import smartmail.platform.models.admin.OfferSubject;
-import smartmail.platform.models.admin.Server;
-import smartmail.platform.models.admin.Sponsor;
-import smartmail.platform.models.admin.Vmta;
+import smartmail.platform.models.admin.*;
 import smartmail.platform.models.production.Drop;
 import smartmail.platform.models.production.DropIp;
 import smartmail.platform.parsers.TypesParser;
 import smartmail.platform.remote.SSH;
 import smartmail.platform.utils.Mapper;
 import smartmail.platform.utils.Strings;
+
+import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
+import java.sql.Timestamp;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DropsHelper {
     public static void saveDrop(DropComponent dropComponent, Server server) throws Exception {

@@ -1,15 +1,5 @@
 package smartmail.platform.workers;
 
-import java.io.File;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import smartmail.platform.components.DropComponent;
 import smartmail.platform.components.RotatorComponent;
@@ -23,6 +13,16 @@ import smartmail.platform.orm.Database;
 import smartmail.platform.parsers.TypesParser;
 import smartmail.platform.remote.SSH;
 import smartmail.platform.utils.Strings;
+
+import java.io.File;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class ServerWorker extends Thread {
     public DropComponent drop;

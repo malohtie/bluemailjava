@@ -1,8 +1,8 @@
 package smartmail.platform.security;
 
+import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import javax.xml.bind.DatatypeConverter;
 
 public class Crypto {
     public static String md5(String str) throws NoSuchAlgorithmException {

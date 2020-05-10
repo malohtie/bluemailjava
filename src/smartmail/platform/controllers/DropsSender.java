@@ -1,12 +1,5 @@
 package smartmail.platform.controllers;
 
-import java.io.File;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.SerializationUtils;
 import smartmail.platform.components.DropComponent;
@@ -17,6 +10,14 @@ import smartmail.platform.interfaces.Controller;
 import smartmail.platform.models.admin.Server;
 import smartmail.platform.models.admin.Vmta;
 import smartmail.platform.workers.ServerWorker;
+
+import java.io.File;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class DropsSender implements Controller {
     public static volatile RotatorComponent PLACEHOLDERS_ROTATOR;

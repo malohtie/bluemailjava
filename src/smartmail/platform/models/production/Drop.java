@@ -1,10 +1,11 @@
 package smartmail.platform.models.production;
 
-import java.io.Serializable;
-import java.sql.Timestamp;
 import smartmail.platform.exceptions.DatabaseException;
 import smartmail.platform.meta.annotations.Column;
 import smartmail.platform.orm.ActiveRecord;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Drop extends ActiveRecord implements Serializable {
     @Column(name = "id", primary = true, autoincrement = true, type = "integer", nullable = false)

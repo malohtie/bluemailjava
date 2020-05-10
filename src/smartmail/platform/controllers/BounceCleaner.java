@@ -1,11 +1,5 @@
 package smartmail.platform.controllers;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import smartmail.platform.exceptions.DatabaseException;
 import smartmail.platform.exceptions.ThreadException;
 import smartmail.platform.interfaces.Controller;
@@ -14,6 +8,13 @@ import smartmail.platform.models.admin.Server;
 import smartmail.platform.orm.Database;
 import smartmail.platform.parsers.TypesParser;
 import smartmail.platform.workers.BounceWorker;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class BounceCleaner implements Controller {
     public static volatile int COUNT = 0;

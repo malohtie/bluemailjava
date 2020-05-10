@@ -1,10 +1,11 @@
 package smartmail.platform.logging;
 
-import java.net.URL;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.log4j.Level;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.LoggerFactory;
+
+import java.net.URL;
 
 public class Logger {
     public static void initlog4Java() {

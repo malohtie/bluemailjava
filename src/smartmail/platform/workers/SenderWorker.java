@@ -1,10 +1,11 @@
 package smartmail.platform.workers;
 
-import java.io.File;
 import smartmail.platform.logging.Logger;
 import smartmail.platform.parsers.TypesParser;
 import smartmail.platform.remote.SSH;
 import smartmail.platform.utils.Strings;
+
+import java.io.File;
 
 public class SenderWorker extends Thread {
     public int dropId;

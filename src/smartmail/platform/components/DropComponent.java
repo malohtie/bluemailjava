@@ -1,16 +1,11 @@
 package smartmail.platform.components;
 
+import smartmail.platform.models.admin.*;
+import smartmail.platform.models.lists.Fresh;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
-import smartmail.platform.models.admin.Isp;
-import smartmail.platform.models.admin.Offer;
-import smartmail.platform.models.admin.OfferName;
-import smartmail.platform.models.admin.OfferSubject;
-import smartmail.platform.models.admin.Server;
-import smartmail.platform.models.admin.Sponsor;
-import smartmail.platform.models.admin.Vmta;
-import smartmail.platform.models.lists.Fresh;
 
 public class DropComponent implements Serializable {
     public int id = 0;
