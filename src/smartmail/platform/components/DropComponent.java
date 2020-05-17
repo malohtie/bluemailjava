@@ -18,6 +18,12 @@ public class DropComponent implements Serializable {
 
     public int mailerId;
 
+    public int negativeId;
+
+    public String negativeFileName;
+
+    public Negative negativeObject;
+
     public boolean isNewDrop = true;
 
     public boolean isStoped = false;

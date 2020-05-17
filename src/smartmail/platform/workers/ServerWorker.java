@@ -72,7 +72,7 @@ public class ServerWorker extends Thread {
         boolean isStopped = false;
         try {
             if (this.server != null && this.server.id > 0 && !this.vmtas.isEmpty()) {
-                ssh = SSH.SSHPassword(this.server.mainIp, String.valueOf(this.server.sshPort), this.server.username, this.server.password);
+                ssh = SSH.SSHPassword(this.server.mainIp.trim(), String.valueOf(this.server.sshPort), this.server.username, this.server.password);
                 ssh.connect();
                 if (this.drop.uploadImages)
                     DropsHelper.uploadImage(this.drop, ssh);

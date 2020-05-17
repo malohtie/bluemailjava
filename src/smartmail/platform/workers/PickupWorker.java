@@ -17,6 +17,9 @@ import smartmail.platform.security.Crypto;
 import smartmail.platform.utils.Strings;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -94,7 +97,7 @@ public class PickupWorker extends Thread {
                             break;
                     }
                 pickup.append("\n");
-                pickup.append(body);
+                pickup.append(replaceNegative(body));
                 pickup.append("\n.\n");
                 DropsSender.rotateHeaders();
                 FileUtils.writeStringToFile(new File(this.drop.pickupsFolder + File.separator + "pickup_" + this.index + "_" + pickupTotal + "_" + Strings.getSaltString(8, true, true, true, false) + ".txt"), pickup.toString());
@@ -352,5 +355,15 @@ public class PickupWorker extends Thread {
             val = DropsHelper.replaceRandomTags(val, this.drop.randomTags);
         }
         return val;
+    }
+
+    public String replaceNegative(String value) throws IOException {
+
+        if (!"".equalsIgnoreCase(this.drop.negativeFileName) && this.drop.negativeFileName != null) {
+            String Path = new String(Base64.decodeBase64(this.drop.negativeFileName.getBytes()));
+            String negative = new String(Files.readAllBytes(Paths.get(Path, new String[0])));
+            return StringUtils.replace(value, "[negative]", negative);
+        }
+        return value;
     }
 }

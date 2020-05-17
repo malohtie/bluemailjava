@@ -83,6 +83,12 @@ public class DropsHelper {
                     drop.isSend = "true".equalsIgnoreCase(String.valueOf(Mapper.getMapValue(data, "drop", "false")));
                     drop.content = content;
                     drop.mailerId = TypesParser.safeParseInt(String.valueOf(Mapper.getMapValue(data, "user-id", "0")));
+                    drop.negativeId = TypesParser.safeParseInt(String.valueOf(Mapper.getMapValue(data, "negative-id", "0")));
+                    if (!"".equals(Integer.valueOf(drop.negativeId)) && drop.negativeId > 0) {
+                        drop.negativeObject = new Negative(Integer.valueOf(drop.negativeId));
+                        if (drop.negativeObject != null && drop.negativeObject.value != null)
+                            drop.negativeFileName = drop.negativeObject.value;
+                    }
                     drop.randomTags = getAllRandomTags(drop.content);
                     drop.serversIds = Arrays.<String, Object>copyOf(((List)Mapper.getMapValue(data, "servers", new ArrayList())).toArray(), (((List)Mapper.getMapValue(data, "servers", new ArrayList())).toArray()).length, String[].class);
                     if (drop.serversIds != null && drop.serversIds.length > 0)
