@@ -162,7 +162,9 @@ public class DropsHelper {
                     drop.to = String.valueOf(Mapper.getMapValue(data, "to", "[email]"));
                     drop.placeholdersRotation = TypesParser.safeParseInt(String.valueOf(Mapper.getMapValue(data, "placeholders-rotation", "1")));
                     drop.placeholders = !"".equalsIgnoreCase(String.valueOf(Mapper.getMapValue(data, "body-placeholders", ""))) ? String.valueOf(Mapper.getMapValue(data, "body-placeholders", "")).split("\r\n") : new String[0];
+                    drop.placeholders2 = !"".equalsIgnoreCase(String.valueOf(Mapper.getMapValue(data, "body-placeholders2", ""))) ? String.valueOf(Mapper.getMapValue(data, "body-placeholders2", "")).split("\r\n") : new String[0];
                     drop.hasPlaceholders = (drop.placeholders.length > 0);
+                    drop.hasPlaceholders2 = (drop.placeholders2.length > 0);
                     drop.uploadImages = "on".equalsIgnoreCase(String.valueOf(Mapper.getMapValue(data, "upload-images", "off")));
                     drop.charset = String.valueOf(Mapper.getMapValue(data, "charset", "utf-8"));
                     drop.contentTransferEncoding = String.valueOf(Mapper.getMapValue(data, "content-transfer-encoding", "7bit"));

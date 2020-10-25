@@ -21,6 +21,8 @@ import java.util.concurrent.TimeUnit;
 
 public class DropsSender implements Controller {
     public static volatile RotatorComponent PLACEHOLDERS_ROTATOR;
+    
+    public static volatile RotatorComponent PLACEHOLDERS_ROTATOR2;
 
     public static volatile RotatorComponent HEADERS_ROTATOR;
 
@@ -38,6 +40,7 @@ public class DropsSender implements Controller {
             DropComponent drop = DropsHelper.parseDropFile(FileUtils.readFileToString(dropFile));
             if (drop != null) {
                 PLACEHOLDERS_ROTATOR = drop.hasPlaceholders ? new RotatorComponent(Arrays.asList(drop.placeholders), drop.placeholdersRotation) : null;
+                PLACEHOLDERS_ROTATOR2 = drop.hasPlaceholders2 ? new RotatorComponent(Arrays.asList(drop.placeholders2), drop.placeholdersRotation) : null;
                 AUTOREPLY_ROTATOR = drop.hasAutoReply ? new RotatorComponent(Arrays.asList(drop.autoReplyEmails), drop.autoResponseRotation) : null;
                 HEADERS_ROTATOR = new RotatorComponent(Arrays.asList(drop.headers), drop.headersRotation);
                 if (!drop.servers.isEmpty() && !drop.vmtas.isEmpty()) {
@@ -98,6 +101,15 @@ public class DropsSender implements Controller {
     public static synchronized void rotatePlaceHolders() {
         if (PLACEHOLDERS_ROTATOR != null)
             PLACEHOLDERS_ROTATOR.rotate();
+    }
+    
+    public static synchronized String getCurrentPlaceHolder2() {
+        return (PLACEHOLDERS_ROTATOR2 != null) ? (String)PLACEHOLDERS_ROTATOR2.getCurrentValue() : "";
+    }
+
+    public static synchronized void rotatePlaceHolders2() {
+        if (PLACEHOLDERS_ROTATOR2 != null)
+            PLACEHOLDERS_ROTATOR2.rotate();
     }
 
     public static synchronized String getCurrentHeader() {

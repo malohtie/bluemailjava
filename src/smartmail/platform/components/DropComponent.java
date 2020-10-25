@@ -79,10 +79,14 @@ public class DropComponent implements Serializable {
     public String to;
 
     public boolean hasPlaceholders;
+    
+    public boolean hasPlaceholders2;
 
     public int placeholdersRotation;
 
     public String[] placeholders;
+    
+    public String[] placeholders2;
 
     public boolean uploadImages;
 

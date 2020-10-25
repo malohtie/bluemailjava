@@ -76,6 +76,7 @@ public class PickupWorker extends Thread {
                             createMailMerge(email, vmta, pickup);
                         }
                     DropsSender.rotatePlaceHolders();
+                    DropsSender.rotatePlaceHolders2();
                     pickupTotal++;
                 }
                 String header = new String(String.valueOf(DropsSender.getCurrentHeader()).getBytes());
@@ -273,6 +274,11 @@ public class PickupWorker extends Thread {
                 pickup.append(DropsSender.getCurrentPlaceHolder());
                 pickup.append("\" ");
             }
+            if (this.drop.hasPlaceholders2) {
+                pickup.append("placeholder2=\"");
+                pickup.append(DropsSender.getCurrentPlaceHolder2());
+                pickup.append("\" ");
+            }
             if (this.drop.randomTags != null && this.drop.randomTags.length > 0)
                 for (String randomTag : this.drop.randomTags) {
                     pickup.append(randomTag).append("=\"");
@@ -345,13 +351,14 @@ public class PickupWorker extends Thread {
                 val = StringUtils.replace(val, "[email]", email.email);
                 val = StringUtils.replace(val, "[fname]", email.fname);
                 val = StringUtils.replace(val, "[lname]", email.lname);
-                val = StringUtils.replace(val, "[email_name]", email.email.split("\\@")[0]);
+                val = StringUtils.replace(val, "[email_name]", email.email.split("\\@")[0]);  
             }
             if (mailDate != null && !"".equalsIgnoreCase(mailDate))
                 val = StringUtils.replace(val, "[mail_date]", mailDate);
             if (messageId != null && !"".equalsIgnoreCase(messageId))
                 val = StringUtils.replace(val, "[message_id]", messageId);
             val = StringUtils.replace(val, "[placeholder]", DropsSender.getCurrentPlaceHolder());
+            val = StringUtils.replace(val, "[placeholder2]", DropsSender.getCurrentPlaceHolder2());
             val = DropsHelper.replaceRandomTags(val, this.drop.randomTags);
         }
         return val;
