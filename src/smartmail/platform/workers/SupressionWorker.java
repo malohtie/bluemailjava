@@ -90,7 +90,11 @@ public class SupressionWorker extends Thread {
     public List<LinkedHashMap<String, Object>> getsuppressionEmails(List<String> suppressionEmails, String[] columns) {
         List<LinkedHashMap<String, Object>> emails = null;
         try {
-            emails = Database.get("lists").executeQuery("SELECT " + String.join(",", (CharSequence[])columns) + ",md5(lower(email)) as md5_email FROM " + this.dataList.name, null, 1);
+            if(this.isMd5) {
+                emails = Database.get("lists").executeQuery("SELECT " + String.join(",", (CharSequence[])columns) + ",md5(lower(email)) as md5_email FROM " + this.dataList.name, null, 1);
+            } else {
+                 emails = Database.get("lists").executeQuery("SELECT " + String.join(",", (CharSequence[])columns) + ",lower(email) as md5_email FROM " + this.dataList.name, null, 1);
+            }
             for (LinkedHashMap<String, Object> row : emails) {
                 if (row != null)
                     suppressionEmails.add(String.valueOf(row.get("md5_email")).trim());
