@@ -51,7 +51,7 @@ public class SuppressionManager implements Controller {
             if (fileInfo.length == 0)
                 throw new Exception("Could not Download the File !");
             Database.get("master").executeUpdate("UPDATE admin.suppression_proccesses SET status = 'in-progress' , progress = '0%' , emails_found = 0 WHERE Id = ?", new Object[] { Integer.valueOf(proccessId) }, 0);
-            if (fileInfo[1].toLowerCase().contains("application/zip") || fileInfo[1].toLowerCase().contains("application/x-zip-compressed") || fileInfo[1].toLowerCase().contains("binary/octet-stream")) {
+            if (fileInfo[1].toLowerCase().contains("application/zip") || fileInfo[1].toLowerCase().contains("application/x-zip") || fileInfo[1].toLowerCase().contains("application/x-zip-compressed") || fileInfo[1].toLowerCase().contains("binary/octet-stream")) {
                 String zipDirectory = suppressionsFolder + File.separator + tempDirectory + File.separator + Strings.getSaltString(10, true, true, true, false) + File.separator;
                 (new File(zipDirectory)).mkdir();
                 Compressor.unzip(fileInfo[0], zipDirectory);

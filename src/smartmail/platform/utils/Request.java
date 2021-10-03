@@ -47,7 +47,7 @@ public class Request {
         if (type == null)
             throw new Exception("Unsupported File Type !");
         System.out.println("FILE TYPE -> " + type);
-        if (type.toLowerCase().contains("application/zip") || type.toLowerCase().contains("application/x-zip-compressed") || type.toLowerCase().contains("binary/octet-stream") ) {
+        if (type.toLowerCase().contains("application/zip") || type.toLowerCase().contains("application/x-zip") || type.toLowerCase().contains("application/x-zip-compressed") || type.toLowerCase().contains("binary/octet-stream") ) {
             fileName = fileName + ".zip";
         } else if (type.toLowerCase().contains("text/plain") || type.toLowerCase().contains("application/csv") || type.toLowerCase().contains("text/csv") || type.toLowerCase().contains("application/octet-stream")) {
             fileName = fileName + ".txt";
